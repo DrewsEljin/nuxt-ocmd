@@ -92,7 +92,7 @@ h2.first-screen_title {
   color: #54595f;
   text-align: center;
   font-size: 20px;
-  padding: 15px 0;
+  padding: 15px 45px;
   background: #F3F3F3;
   border-radius: 15px;
 }
