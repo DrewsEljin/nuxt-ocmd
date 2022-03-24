@@ -25,26 +25,3 @@
 section {
     margin-top: 40px;
 }
-
-.view-in,
-.view-out {
-    transition: 0.3s;
-}
-
-.view-out {
-    opacity: 0.3;
-}
-
-.view-in.view-in--gt-half,
-.view-in,
-.view-in.view-in--full,
-.view-in--gt-third {
-    opacity: 1;
-}
-
-@media (max-width : 990px) {
-    .view-out,
-    .view-in {
-        opacity: 1 !important;
-    }
-}
