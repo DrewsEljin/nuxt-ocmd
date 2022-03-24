@@ -22,6 +22,10 @@
     src: url('~assets/fonts/PlayfairDisplayRegular.ttf') format('truetype');
 }
 
+.container {
+    max-width: 1200px !important;
+}
+
 section {
     margin-top: 40px;
 }
