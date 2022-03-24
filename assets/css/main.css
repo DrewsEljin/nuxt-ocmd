@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'AvantGarde';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('~assets/fonts/AvantGardeBookBT.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'PlayfairDisplayBold';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('~assets/fonts/PlayfairDisplayBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'PlayfairDisplayRegular';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('~assets/fonts/PlayfairDisplayRegular.ttf') format('truetype');
+}
+
+section {
+    margin-top: 40px;
+}
+
+.view-in,
+.view-out {
+    transition: 0.3s;
+}
+
+.view-out {
+    opacity: 0.3;
+}
+
+.view-in.view-in--gt-half,
+.view-in,
+.view-in.view-in--full,
+.view-in--gt-third {
+    opacity: 1;
+}
+
+@media (max-width:768px) {
+    .view-out,
+    .view-in {
+        opacity: 1;
+    }
+}
