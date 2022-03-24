@@ -15,7 +15,7 @@
       <div class="challenge-text">
         <b>
           Two weeks is all the time Thousands of Our <br>
-          Customers Needed to Start Seeing Visible Change! <br>
+          Customers Needed to Start Seeing Visible Changes! <br>
           Will You Be Our Next Success Case-Study?</b>
       </div>
       <div class="cards">

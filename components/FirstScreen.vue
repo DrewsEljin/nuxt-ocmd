@@ -108,7 +108,7 @@ h2.first-screen_title {
 }
 .first-screen_cream.active {
   opacity: 1;
-  padding-bottom: 78px;
+  margin-bottom: 78px;
 }
 
 .first-screen_cream img{

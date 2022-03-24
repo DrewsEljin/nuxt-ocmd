@@ -42,9 +42,9 @@ section {
     opacity: 1;
 }
 
-@media (max-width:768px) {
+@media (max-width : 990px) {
     .view-out,
     .view-in {
-        opacity: 1;
+        opacity: 1 !important;
     }
 }

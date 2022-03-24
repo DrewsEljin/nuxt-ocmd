@@ -107,9 +107,10 @@ section {
 }
 
 .limited {
-  transform: rotate(45deg) translate(20%, 0);
+  transform: rotate(45deg) translate(33%, -200%);
     background:#23A455;
     top: 0;
+    left: 0;
     width: 100%;
     height: 20px;
     position: absolute;
@@ -163,6 +164,10 @@ h2 {
   filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.09));
   text-align: center;
 }
+.product-list_item img{
+  width: 100%;
+  max-width: 250px;
+}
 .product-list_item_name {
   margin-top: 40px;
   font-size: 20px;
@@ -200,6 +205,16 @@ h2 {
 @media (max-width: 990px) {
   .product-list {
     grid-template-columns: auto;
+  }
+  .limited{
+    transform:  rotate(45deg) translate(33%, -400%) ;
+
+  }
+}
+@media (max-width: 576px) {
+   .limited{
+    transform:  rotate(45deg) translate(33%, -200%) ;
+
   }
 }
 </style>
