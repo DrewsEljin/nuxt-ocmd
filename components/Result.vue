@@ -87,21 +87,21 @@
             <span><b> Helps Reducing the appearance of wrinkles.</b></span>
           </li>
           <li>
-            <span>Helps Firming and lifting the skin (for over 92% of
+            <span><b>Helps Firming</b>  and <b>lifting the skin</b>  (for over 92% of
               customers)</span>
           </li>
           <li>
-            <span>Removes Dead Surface Skin Cells to Help Creating a brighter
-              complexion.</span>
+            <span>Removes Dead Surface Skin Cells to Help Creating a <b>brighter
+              complexion.</b> </span>
           </li>
           <li>
             <span>
-              Swiss Apple Stem Cells Helps stimulate skin stem cell regeneration
+              Swiss Apple Stem Cells Helps <b>stimulate skin stem cell regeneration</b>
               by up to 80%.</span>
           </li>
           <li>
             <span>
-              Helps reducing the damage of UV sun light on skin stem cells by
+              <b> Helps reducing the damage of UV sun light</b>  on skin stem cells by
               46%.</span>
           </li>
         </ul>
@@ -139,6 +139,11 @@ export default {
 </script>
 
 <style scoped>
+
+section {
+  margin-top: 40px;
+}
+
 h2 {
   text-align: center;
   font-size: 30px;

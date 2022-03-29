@@ -25,6 +25,7 @@ export default {
 .guarantee-section {
   text-align: center;
   background: #bf8876;
+  margin-top: 60px;
   padding: 60px 0;
 }
 .guarantee-section_text{
@@ -33,5 +34,11 @@ export default {
     color: #fff;
     font-family: 'Roboto';
     text-align: center;
+}
+
+@media (max-width:576px) {
+  .guarantee-section_text {
+    font-size: 20px;
+  }
 }
 </style>

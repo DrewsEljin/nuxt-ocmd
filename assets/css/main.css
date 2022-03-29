@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'AvantGarde';
+    font-family: 'AvantGarde Bk BT';
     font-style: normal;
     font-weight: 400;
     font-display: swap;
@@ -22,10 +22,12 @@
     src: url('~assets/fonts/PlayfairDisplayRegular.ttf') format('truetype');
 }
 
-.container {
-    max-width: 1200px !important;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-section {
-    margin-top: 40px;
+.container {
+    max-width: 1200px !important;
+    padding: 0 15px !important;
 }

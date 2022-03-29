@@ -48,6 +48,7 @@ export default {
 
 <style scoped>
 section.first-screen {
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
 }
@@ -116,5 +117,16 @@ h2.first-screen_title {
   max-height: 100%;
   max-width: 100%;
 }
-
+@media (max-width:576px) {
+  h2.first-screen_title {
+    font-size: 20px;
+  }
+  .first-screen_advice {
+    font-size: 18px;
+  }
+  .first-screen_hint {
+    font-size: 16px;
+    padding: 15px 20px;
+  }
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <section v-view>
+  <section v-view class="dhl">
     <div class="sale">
       <div class="old-price">
         Only
@@ -46,7 +46,6 @@ export default {
 <style scoped>
 .sale {
   white-space: nowrap;
-  margin-top: 20px;
   text-align: center;
   font-family: "Roboto";
   display: flex;
@@ -108,5 +107,17 @@ export default {
 .order-now_text {
   font-size: 18px;
   color: rgba(186, 224, 197, 1);
+}
+
+@media (max-width:576px) {
+  .sale {
+    font-size: 30px;
+  }
+  .business-title {
+    font-size: 20px;
+  }
+  .order-now {
+    padding: 20px 15px;
+  }
 }
 </style>

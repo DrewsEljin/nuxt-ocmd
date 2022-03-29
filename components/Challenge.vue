@@ -48,6 +48,10 @@ h2 {
   color: #54595f;
   text-align: center;
   font-size: 40px;
+  font-weight: 400;
+}
+section{
+  margin-top: 40px;
 }
 h2 b {
   font-size: 50px;
@@ -61,6 +65,9 @@ h2 b {
   font-style: italic;
   margin-top: 40px;
   color: #54595f;
+}
+.challenge-text b {
+  font-size: 40px;
 }
 .cards {
   display: grid;
@@ -78,14 +85,21 @@ h2 b {
   .cards {
     grid-template-columns: auto auto;
   }
+
+}
+
+@media (max-width: 576px) {
   h2 {
     font-size: 24px;
   }
   h2 b{
-    font-size: 34px;
+    font-size: 30px;
   }
-  .challenge-text,.challenge-text{
-    font-size: 14px;
+  .challenge-text{
+    font-size: 20px;
+  }
+  .challenge-text b{
+    font-size: 24px;
   }
 }
 </style>

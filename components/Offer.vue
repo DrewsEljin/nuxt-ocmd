@@ -1,5 +1,5 @@
 <template>
-  <section v-view>
+  <section v-view class="offer-section">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.1/tiny-slider.css"
@@ -32,6 +32,10 @@ export default {
 
 <style scoped>
 
+.offer-section {
+  margin-top: 40px;
+}
+
 h2 {
   margin-top: 40px;
   color: #0075b2;
@@ -58,5 +62,18 @@ h2 {
   line-height: 48px;
   text-align: center;
   color: #54595f;
+}
+
+@media (max-width:576px) {
+  .limited{
+     font-size: 36px;
+  }
+  h2 {
+    font-size: 30px;
+  }
+  .stem-cells {
+    font-size: 20px;
+    line-height: 30px;
+  }
 }
 </style>
