@@ -124,6 +124,10 @@ export default {
 section {
   margin-top: 40px;
 }
+
+.dhl{
+  margin-top: 40px;
+}
 .limited {
   transform: rotate(45deg) translate(33%, -200%);
   background: #23a455;

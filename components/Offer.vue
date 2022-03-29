@@ -64,6 +64,10 @@ h2 {
   color: #54595f;
 }
 
+.dhl {
+    margin-top: 20px;
+  }
+
 @media (max-width:576px) {
   .limited{
      font-size: 36px;
@@ -71,6 +75,7 @@ h2 {
   h2 {
     font-size: 30px;
   }
+
   .stem-cells {
     font-size: 20px;
     line-height: 30px;
