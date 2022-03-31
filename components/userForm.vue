@@ -7,40 +7,53 @@
         <label for="lastName">Last name</label>
         <input id="lastName" v-model="lastname" type="text">
         <label for="email">Email</label>
-        <input id="email" type="email">
+        <input id="email" v-model="mail" type="email">
         <button type="submit">
           Add
         </button>
       </form>
       <div class="users">
-        <div v-for="(user, index) in users" :key="index" class="user">
-          <div class="first-name">
-            {{ user.firstName }}
-          </div>
-          <div class="last-name">
-            {{ user.lastName }}
-          </div>
-          <div class="email" />
-        </div>
+        <table>
+          <tr>
+            <td>Id</td>
+            <td>First name</td>
+            <td>Last name</td>
+            <td>E-mail</td>
+          </tr>
+          <tr v-for="(user, index) in users" :key="index">
+            <td>{{ index }}</td>
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.lastName }}</td>
+            <td>{{ user.email }}</td>
+          </tr>
+        </table>
       </div>
     </v-container>
   </section>
 </template>
 
 <script>
-export default {x
+export default {
   name: 'UserFormComponent',
   data () {
     return {
-      users: [
-        { firstName: 'Andrey', lastName: 'Manernyi', email: 'abc@mail.com' }
-      ]
+      users: []
     }
+  },
+  mounted () {
+    this.users = JSON.parse(localStorage.data)
   },
   methods: {
     storeUser () {
-      this.users.push({ firstName: this.firstname, lastName: this.lastname })
+      this.users.push({
+        firstName: this.firstname,
+        lastName: this.lastname,
+        email: this.mail
+      })
       this.firstname = ''
+      this.lastname = ''
+      this.mail = ''
+      localStorage.data = JSON.stringify(this.users)
     }
   }
 }
@@ -73,8 +86,29 @@ button[type="submit"] {
   margin-top: 20px;
 }
 
+.users {
+  margin-top: 20px;
+}
+
 .user {
   font-family: "Roboto";
   display: flex;
+}
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  border: 1px solid #000;
+}
+
+table tr td {
+  padding: 10px 20px;
+  font-family: "Roboto";
+  border: 1px solid #000;
+}
+
+.table-header {
+  display: flex;
+  font-family: "Roboto";
 }
 </style>
