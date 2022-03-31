@@ -41,7 +41,9 @@ export default {
     }
   },
   mounted () {
-    this.users = JSON.parse(localStorage.data)
+    if (localStorage.data) {
+      this.users = JSON.parse(localStorage.data)
+    }
   },
   methods: {
     storeUser () {
