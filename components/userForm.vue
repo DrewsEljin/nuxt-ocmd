@@ -1,17 +1,42 @@
 <template>
   <section>
     <v-container>
-      <form @submit.prevent="storeUser">
-        <label for="firstName">First name</label>
-        <input id="firstName" v-model="firstname" type="text">
-        <label for="lastName">Last name</label>
-        <input id="lastName" v-model="lastname" type="text">
-        <label for="email">Email</label>
-        <input id="email" v-model="mail" type="email">
+      <form @submit.prevent="addUser">
+        <label for="firstName">First name *</label>
+        <input
+          id="firstName"
+          v-model="firstname"
+          required
+          type="text"
+          placeholder="First Name"
+        >
+        <label for="lastName">Last name *</label>
+        <input
+          id="lastName"
+          v-model="lastname"
+          required
+          type="text"
+          placeholder="Last Name"
+        >
+        <label for="email">Email *</label>
+        <input
+          id="email"
+          v-model="mail"
+          required
+          type="email"
+          placeholder="E-mail"
+        >
         <button type="submit">
           Add
         </button>
       </form>
+      <div
+        class="notification"
+        :class="{ active: isError }"
+        v-html="errorMessage"
+      >
+        test
+      </div>
       <div class="users">
         <table>
           <tr>
@@ -19,12 +44,16 @@
             <td>First name</td>
             <td>Last name</td>
             <td>E-mail</td>
+            <td />
           </tr>
           <tr v-for="(user, index) in users" :key="index">
             <td>{{ index }}</td>
             <td>{{ user.firstName }}</td>
             <td>{{ user.lastName }}</td>
             <td>{{ user.email }}</td>
+            <td class="delete" @click="deleteItem(user.id)">
+              &times;
+            </td>
           </tr>
         </table>
       </div>
@@ -37,25 +66,80 @@ export default {
   name: 'UserFormComponent',
   data () {
     return {
-      users: []
+      errorMessage: null,
+      isError: null,
+      firstname: null,
+      lastname: null,
+      mail: null,
+      users: null
     }
   },
   mounted () {
     if (localStorage.data) {
       this.users = JSON.parse(localStorage.data)
+    } else {
+      this.users = []
     }
   },
   methods: {
-    storeUser () {
-      this.users.push({
-        firstName: this.firstname,
-        lastName: this.lastname,
-        email: this.mail
-      })
-      this.firstname = ''
-      this.lastname = ''
-      this.mail = ''
+    store () {
       localStorage.data = JSON.stringify(this.users)
+    },
+    addUser () {
+      if (
+        this.validateMail(this.mail) === true &&
+        this.validateText([this.firstname, this.lastname])
+      ) {
+        this.users.push({
+          firstName: this.firstname,
+          lastName: this.lastname,
+          email: this.mail,
+          id: Date.now()
+        })
+        this.firstname = ''
+        this.lastname = ''
+        this.mail = ''
+        this.store()
+        this.errorValidation('')
+        this.isError = false
+      }
+    },
+    validateText (array) {
+      let validate = true
+      array.forEach((element) => {
+        element = element.replace(/\s/g, '')
+        if (element.length <= 0 || element.length >= 17) {
+          this.errorValidation(
+            'First and last name must contain from 1 to 16 letters(spaces does not count)'
+          )
+          validate = false
+        }
+        if (!element.match(/^[a-zA-Z_]+$/)) {
+          this.errorValidation('Please enter only letters')
+          validate = false
+        }
+      })
+
+      return validate
+    },
+    validateMail (mail) {
+      let validate = true
+      this.users.forEach((element) => {
+        if (element.email === mail) {
+          validate = false
+          this.error = true
+        }
+      })
+      this.errorValidation('This e-mail already using')
+      return validate
+    },
+    errorValidation (msg) {
+      this.isError = true
+      this.errorMessage = msg
+    },
+    deleteItem (id) {
+      this.users = this.users.filter(e => e.id !== id)
+      this.store()
     }
   }
 }
@@ -70,13 +154,13 @@ form {
   align-items: center;
 }
 input {
-  border: 1px solid #bf8876;
-  border-radius: 5px;
-  padding: 10px 5px;
+  border: 1px solid #ccc;
+  padding: 15px 20px;
 }
 
 label {
   margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 button[type="submit"] {
@@ -86,6 +170,7 @@ button[type="submit"] {
   border-radius: 10px;
   font-size: 20px;
   margin-top: 20px;
+  min-width: 10rem;
 }
 
 .users {
@@ -112,5 +197,25 @@ table tr td {
 .table-header {
   display: flex;
   font-family: "Roboto";
+}
+
+.delete {
+  cursor: pointer;
+  font-size: 20px;
+  background-color: red;
+  color: #fff;
+}
+
+.notification {
+  font-family: "Roboto";
+  font-size: 20px;
+  padding: 10px 20px;
+  background-color: #ffb900;
+  margin-top: 20px;
+  color: #fff;
+  display: none;
+}
+.notification.active {
+  display: block;
 }
 </style>

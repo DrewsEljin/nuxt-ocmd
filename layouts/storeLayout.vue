@@ -1,15 +1,13 @@
 <template>
-  <div>
-    <userForm />
-  </div>
+  <Nuxt />
 </template>
 
 <script>
 export default {
-  name: 'NamePage',
-  layout: 'storeLayout'
+  name: 'StoreLayout'
 }
 </script>
 
 <style>
+
 </style>
