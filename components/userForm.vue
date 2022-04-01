@@ -105,33 +105,30 @@ export default {
       }
     },
     validateText (array) {
-      let validate = true
-      array.forEach((element) => {
+      for (let element of array) {
         element = element.replace(/\s/g, '')
         if (element.length <= 0 || element.length >= 17) {
           this.errorValidation(
             'First and last name must contain from 1 to 16 letters(spaces does not count)'
           )
-          validate = false
+          return false
         }
         if (!element.match(/^[a-zA-Z_]+$/)) {
           this.errorValidation('Please enter only letters')
-          validate = false
+          return false
         }
-      })
-
-      return validate
+      }
+      return true
     },
     validateMail (mail) {
-      let validate = true
-      this.users.forEach((element) => {
+      for (const element of this.users) {
         if (element.email === mail) {
-          validate = false
           this.error = true
+          this.errorValidation('This e-mail is already using')
+          return false
         }
-      })
-      this.errorValidation('This e-mail already using')
-      return validate
+      }
+      return true
     },
     errorValidation (msg) {
       this.isError = true
