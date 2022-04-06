@@ -38,7 +38,7 @@ export default {
 
   methods: {
     cycle () {
-      if (this.index === this.images.length) {
+      if (this.index === this.images.length || this.index <= 0) {
         this.index = 0
       }
     },
