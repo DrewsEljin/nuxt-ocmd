@@ -38,8 +38,11 @@ export default {
 
   methods: {
     cycle () {
-      if (this.index === this.images.length || this.index <= 0) {
+      if (this.index === this.images.length || this.index === 0) {
         this.index = 0
+      }
+      if (this.index < 0) {
+        this.index = this.images.length - 1
       }
     },
     next () {
